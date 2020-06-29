@@ -6,8 +6,13 @@ on:
       - master
 
 jobs:
-  Hello:
-    runs-on: golang:1.14
+  build:
+    runs-on: ubuntu-latest
     steps:
-      - name: make build !
+      - name: Set up Go 1.14
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.14
+
+      - name: Build !
         run: go build
