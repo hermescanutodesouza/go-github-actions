@@ -21,10 +21,10 @@ jobs:
 
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
-        goarch:
-          - amd64
-          - arm
-          - arm64
+        goos:
+          - darwin
+          - linux
+          - windows
         with:
           version: latest
           args: release --rm-dist
