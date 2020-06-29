@@ -24,16 +24,15 @@ jobs:
       - name: List
         run: ls
 
-      - name: Create Release
-        uses: actions/create-release@v1
+  release-linux-amd64:
+    name: release linux/amd64
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: compile and release
+        uses: ngs/go-release.action@v1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
-          draft: false
-          prerelease: false
+          GOARCH: amd64
+          GOOS: linux
+          EXTRA_FILES: "LICENSE"
