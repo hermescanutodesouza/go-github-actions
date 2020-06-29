@@ -1,0 +1,13 @@
+name: do build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Hello:
+    runs-on: golang:1.14
+    steps:
+      - name: make build !
+        run: go build
