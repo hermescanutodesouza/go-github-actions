@@ -14,5 +14,7 @@ jobs:
         with:
           go-version: 1.14
 
-      - name: Build !
+      - name: Build
+        env:
+          GOPROXY: "https://proxy.golang.org"
         run: go build
